@@ -6,9 +6,9 @@ export const mapCharacterResponseDTOToStateModel = (
   characterResponse: CharacterResponseDTO
 ): CharactersState => ({
   count: characterResponse.count,
-  next: characterResponse.next,
-  previous: characterResponse.previous,
-  results: characterResponse.results.map((character) =>
+  nextPageUrl: characterResponse.next,
+  previousPageUrl: characterResponse.previous,
+  characters: characterResponse.results.map((character) =>
     mapCharacterDTOtoModel(character)
   ),
 });
@@ -23,4 +23,5 @@ const mapCharacterDTOtoModel = (character: CharacterDTO): Character => ({
   birthYear: character.birth_year,
   gender: character.gender,
   filmsUrl: character.films,
+  url: character.url,
 });

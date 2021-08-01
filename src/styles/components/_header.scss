@@ -1,0 +1,14 @@
+.header {
+  background-image: url("../../assets/img/header-background.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: black;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}

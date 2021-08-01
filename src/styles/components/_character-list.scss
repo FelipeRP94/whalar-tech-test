@@ -1,0 +1,17 @@
+.character-list {
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 1096px) {
+    display: grid;
+    grid-template-columns: 35% 35% 35%;
+    grid-auto-flow: row;
+    grid-gap: 30px;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}

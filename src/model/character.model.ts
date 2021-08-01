@@ -1,8 +1,8 @@
 export interface CharactersState {
   count: number;
-  next?: string;
-  previous?: string;
-  results: Character[];
+  nextPageUrl?: string;
+  previousPageUrl?: string;
+  characters: Character[];
 }
 
 export interface Character {
@@ -15,9 +15,10 @@ export interface Character {
   birthYear: string;
   gender: string;
   filmsUrl: string[];
+  url: string;
 }
 
 export const createDefaultCharactersState = (): CharactersState => ({
   count: 0,
-  results: [],
+  characters: [],
 });

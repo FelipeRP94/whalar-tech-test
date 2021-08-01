@@ -1,0 +1,15 @@
+.button {
+  padding: 20px;
+  margin: 10px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 3px solid $primary-color;
+  color: $primary-color;
+  background: black;
+  cursor: pointer;
+  transition: transform 0.5;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
