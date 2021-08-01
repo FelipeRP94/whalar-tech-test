@@ -41,7 +41,7 @@ export default function CharacterListPage() {
         )}
         {nextPageUrl && (
           <button className="button" onClick={showMore}>
-            Show more
+            Load more
           </button>
         )}
       </div>
