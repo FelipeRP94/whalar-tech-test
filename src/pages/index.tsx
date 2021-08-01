@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCharactersRequestAction } from "../store/actions/characters.actions";
+import { getCharactersRequestAction } from "../store/actions/charactersList.actions";
 import { ReduxState } from "../store/reduxState";
 import { CharacterComponent } from "./components/character.component";
 
-export default function Home() {
+export default function CharacterListPage() {
   const dispatch = useDispatch();
   const { characters, nextPageUrl, previousPageUrl } = useSelector(
     (state: ReduxState) => state.charactersState
@@ -19,7 +19,7 @@ export default function Home() {
     dispatch(getCharactersRequestAction(previousPageUrl));
 
   return (
-    <main>
+    <>
       <div className="container">
         <div className="character-list">
           {characters.map((character, idx) => (
@@ -39,6 +39,6 @@ export default function Home() {
           </button>
         )}
       </div>
-    </main>
+    </>
   );
 }

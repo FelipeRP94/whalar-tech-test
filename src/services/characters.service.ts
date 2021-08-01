@@ -1,8 +1,11 @@
-import { CharactersState } from "../model/character.model";
-import { mapCharacterResponseDTOToStateModel } from "../model/mappers/character.mapper";
+import { Character, CharactersState } from "../model/character.model";
+import {
+  mapCharacterDTOtoModel,
+  mapCharacterResponseDTOToStateModel,
+} from "../model/mappers/character.mapper";
 import { apiBaseRoute, defaultRequestConfig } from "./helpers";
 
-const getChararters = (url?: string): Promise<CharactersState> => {
+const getCharartersList = (url?: string): Promise<CharactersState> => {
   const getCharartersURL = url || `${apiBaseRoute}/people`;
 
   return fetch(getCharartersURL, defaultRequestConfig)
@@ -16,6 +19,19 @@ const getChararters = (url?: string): Promise<CharactersState> => {
     });
 };
 
+const getCharacter = (url: string): Promise<Character> => {
+  return fetch(url, defaultRequestConfig)
+    .then((response) => {
+      if (response.ok) return response.json();
+      throw new Error("Error getting character");
+    })
+    .then((response) => mapCharacterDTOtoModel(response))
+    .catch((error) => {
+      throw new Error(error);
+    });
+};
+
 export const characterService = {
-  getChararters,
+  getCharartersList,
+  getCharacter,
 };

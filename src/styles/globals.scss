@@ -22,6 +22,9 @@ main {
 
 * {
   box-sizing: border-box;
+  font-family: "Days One", sans-serif, -apple-system, BlinkMacSystemFont,
+    Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
 }
 
 .container {
@@ -35,3 +38,4 @@ main {
 @import "./components/character-list";
 @import "./components/header";
 @import "./components/button";
+@import "./characterPage";

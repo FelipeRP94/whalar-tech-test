@@ -1,6 +1,10 @@
 import { CharacterDTO } from "../../services/model/character.dto";
 import { CharacterResponseDTO } from "../../services/model/characterResponse.dto";
-import { Character, CharactersState } from "../character.model";
+import {
+  Character,
+  CharactersState,
+  createDefaultCharacter,
+} from "../character.model";
 
 export const mapCharacterResponseDTOToStateModel = (
   characterResponse: CharacterResponseDTO
@@ -11,9 +15,13 @@ export const mapCharacterResponseDTOToStateModel = (
   characters: characterResponse.results.map((character) =>
     mapCharacterDTOtoModel(character)
   ),
+  selectedCharacter: createDefaultCharacter(),
 });
 
-const mapCharacterDTOtoModel = (character: CharacterDTO): Character => ({
+export const mapCharacterDTOtoModel = (
+  character: CharacterDTO,
+  mapFilms = false
+): Character => ({
   name: character.name,
   height: character.height,
   mass: character.mass,

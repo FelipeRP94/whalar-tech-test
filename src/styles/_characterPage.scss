@@ -1,0 +1,21 @@
+.character-page {
+  fieldset {
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+
+  .information {
+    display: flex;
+    @media screen and (min-width: 1096px) {
+      justify-content: space-evenly;
+    }
+  }
+
+  .back {
+    cursor: pointer;
+
+    &:hover {
+      color: blue;
+    }
+  }
+}

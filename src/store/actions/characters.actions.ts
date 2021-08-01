@@ -1,25 +1,23 @@
 import { AnyAction } from "redux";
-import { CharactersState } from "../../model/character.model";
+import { Character } from "../../model/character.model";
 
-export const charactersActionTypes = {
-  GET_CHARACTERS_REQUEST: "GET_CHARACTERS_REQUEST",
-  GET_CHARACTERS_SUCCESS: "GET_CHARACTERS_SUCCESS",
-  GET_CHARACTERS_ERROR: "GET_CHARACTERS_ERROR",
+export const characterActionTypes = {
+  GET_CHARACTER_REQUEST: "GET_CHARACTER_REQUEST",
+  GET_CHARACTER_SUCCESS: "GET_CHARACTER_SUCCESS",
+  GET_CHARACTER_ERROR: "GET_CHARACTER_ERROR",
 };
 
-export const getCharactersRequestAction = (url?: string): AnyAction => ({
-  type: charactersActionTypes.GET_CHARACTERS_REQUEST,
+export const getCharacterRequestAction = (url?: string): AnyAction => ({
+  type: characterActionTypes.GET_CHARACTER_REQUEST,
   payload: url,
 });
 
-export const getCharactersSuccessAction = (
-  newCharacterState: CharactersState
-): AnyAction => ({
-  type: charactersActionTypes.GET_CHARACTERS_SUCCESS,
-  payload: newCharacterState,
+export const getCharacterSuccessAction = (character: Character): AnyAction => ({
+  type: characterActionTypes.GET_CHARACTER_SUCCESS,
+  payload: character,
 });
 
-export const getCharactersErrorAction = (error: string): AnyAction => ({
-  type: charactersActionTypes.GET_CHARACTERS_ERROR,
+export const getCharacterErrorAction = (error: string): AnyAction => ({
+  type: characterActionTypes.GET_CHARACTER_ERROR,
   payload: error,
 });
