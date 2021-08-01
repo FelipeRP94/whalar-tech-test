@@ -26,7 +26,7 @@ export function* getCharactersListSaga(action: AnyAction) {
 
     yield put(getCharactersSuccessAction(charactersState));
   } catch (error) {
-    yield put(getCharactersErrorAction(error));
+    yield put(getCharactersErrorAction(error.message));
   }
 }
 
@@ -39,7 +39,7 @@ export function* getCharacterSaga(action: AnyAction) {
 
     yield put(getCharacterSuccessAction(character));
   } catch (error) {
-    yield put(getCharacterErrorAction(error));
+    yield put(getCharacterErrorAction(error.message));
   }
 }
 
@@ -51,6 +51,6 @@ export function* getFilmsCharacterSaga(action: AnyAction) {
 
     yield put(getFilmsSuccessAction(films));
   } catch (error) {
-    yield put(getFilmsErrorAction(error));
+    yield put(getFilmsErrorAction(error.message));
   }
 }

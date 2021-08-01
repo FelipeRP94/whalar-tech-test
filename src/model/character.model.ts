@@ -6,6 +6,7 @@ export interface CharactersState {
   previousPageUrl?: string;
   characters: Character[];
   selectedCharacter: Character;
+  error?: string;
 }
 
 export interface Character {

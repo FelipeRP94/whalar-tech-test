@@ -6,7 +6,7 @@ const getFilm = (url: string): Promise<Film> => {
   return fetch(url, defaultRequestConfig)
     .then((response) => {
       if (response.ok) return response.json();
-      throw new Error("Error getting film information");
+      throw new Error("Error getting films information");
     })
     .then((response) => mapFilmDTOtoModel(response))
     .catch((error) => {

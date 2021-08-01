@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { ErrorAlert } from "../components/error/error.component";
 import { getCharactersRequestAction } from "../store/actions/charactersList.actions";
 import { ReduxState } from "../store/reduxState";
 import { CharacterComponent } from "./components/character.component";
 
 export default function CharacterListPage() {
   const dispatch = useDispatch();
-  const { characters, nextPageUrl, previousPageUrl } = useSelector(
+  const { characters, nextPageUrl, previousPageUrl, error } = useSelector(
     (state: ReduxState) => state.charactersState
   );
 
@@ -18,7 +19,9 @@ export default function CharacterListPage() {
   const showPrevious = () =>
     dispatch(getCharactersRequestAction(previousPageUrl));
 
-  return (
+  return error ? (
+    <ErrorAlert error={error} />
+  ) : (
     <>
       <div className="container">
         <div className="character-list">

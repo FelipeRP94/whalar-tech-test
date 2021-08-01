@@ -1,13 +1,14 @@
 import { useRouter } from "next/dist/client/router";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { ErrorAlert } from "../../components/error/error.component";
 import { Character } from "../../model/character.model";
 import { getFilmsRequestAction } from "../../store/actions/film.actions";
 import { ReduxState } from "../../store/reduxState";
 import { AttributeInfo } from "./components/attributeInfo.component";
 
 export default function CharacterPage() {
-  const { selectedCharacter } = useSelector(
+  const { selectedCharacter, error } = useSelector(
     (state: ReduxState) => state.charactersState
   );
   const dispatch = useDispatch();
@@ -34,7 +35,9 @@ export default function CharacterPage() {
     dispatch(getFilmsRequestAction(filmsUrl));
   }, [selectedCharacter.name, dispatch, filmsUrl]);
 
-  return (
+  return error && !selectedCharacter.name ? (
+    <ErrorAlert error={error} />
+  ) : (
     <div className="character-page">
       <span className="back" onClick={backToList}>
         Back to main list
@@ -54,11 +57,16 @@ export default function CharacterPage() {
       </fieldset>
       <fieldset>
         <legend>{`${filmsCount} film${filmsCount > 1 ? "s" : ""}`}</legend>
-        <ul>
-          {films?.map((film, idx) => (
-            <li key={idx}>{`${film.title}: ${film.releasedYears} ago`}</li>
-          ))}
-        </ul>
+
+        {error ? (
+          <ErrorAlert error={error} />
+        ) : (
+          <ul>
+            {films?.map((film, idx) => (
+              <li key={idx}>{`${film.title}: ${film.releasedYears} ago`}</li>
+            ))}
+          </ul>
+        )}
       </fieldset>
     </div>
   );
