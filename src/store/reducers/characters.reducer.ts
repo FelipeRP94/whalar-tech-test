@@ -1,18 +1,18 @@
 import { AnyAction } from "redux";
+import { Character } from "../../model/character.model";
 import {
-  Character,
   CharactersState,
   createDefaultCharactersState,
-} from "../../model/character.model";
-import { Film } from "../../model/film.model";
+} from "../../model/charactersState.model";
 import { characterActionTypes } from "../actions/characters.actions";
 import { charactersListActionTypes } from "../actions/charactersList.actions";
+import { Film } from "../../model/film.model";
 import { filmActionTypes } from "../actions/film.actions";
 
 export const charactersReducer = (
   state = createDefaultCharactersState(),
   action: AnyAction
-) => {
+): CharactersState => {
   const { type, payload } = action;
 
   switch (type) {
@@ -37,29 +37,35 @@ export const charactersReducer = (
 const handleGetCharactersListSuccess = (
   state: CharactersState,
   characters: CharactersState
-) => ({
+): CharactersState => ({
   ...state,
   ...characters,
-  error: null,
+  error: "",
 });
 
 const handleGetCharacterSuccess = (
   state: CharactersState,
   selectedCharacter: Character
-) => ({
+): CharactersState => ({
   ...state,
-  error: null,
+  error: "",
   selectedCharacter,
 });
 
-const handleError = (state: CharactersState, error: string) => ({
+const handleError = (
+  state: CharactersState,
+  error: string
+): CharactersState => ({
   ...state,
   error,
 });
 
-const handleGetFilmsSuccess = (state: CharactersState, films: Film[]) => ({
+const handleGetFilmsSuccess = (
+  state: CharactersState,
+  films: Film[]
+): CharactersState => ({
   ...state,
-  error: null,
+  error: "",
   selectedCharacter: {
     ...state.selectedCharacter,
     films,

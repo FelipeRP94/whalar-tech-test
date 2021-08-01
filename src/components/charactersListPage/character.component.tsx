@@ -1,7 +1,7 @@
-import { useRouter } from "next/dist/client/router";
-import { useDispatch } from "react-redux";
 import { Character } from "../../model/character.model";
 import { getCharacterRequestAction } from "../../store/actions/characters.actions";
+import { useDispatch } from "react-redux";
+import { useRouter } from "next/dist/client/router";
 
 interface Props {
   character: Character;

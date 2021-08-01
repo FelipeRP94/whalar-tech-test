@@ -1,14 +1,5 @@
 import { Film } from "./film.model";
 
-export interface CharactersState {
-  count: number;
-  nextPageUrl?: string;
-  previousPageUrl?: string;
-  characters: Character[];
-  selectedCharacter: Character;
-  error?: string;
-}
-
 export interface Character {
   name: string;
   height: string;
@@ -34,10 +25,4 @@ export const createDefaultCharacter = (): Character => ({
   gender: "",
   filmsUrl: [],
   url: "",
-});
-
-export const createDefaultCharactersState = (): CharactersState => ({
-  count: 0,
-  characters: [],
-  selectedCharacter: createDefaultCharacter(),
 });

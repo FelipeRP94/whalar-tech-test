@@ -1,4 +1,5 @@
-import { Character, CharactersState } from "../model/character.model";
+import { Character } from "../model/character.model";
+import { CharactersState } from "../model/charactersState.model";
 import {
   mapCharacterDTOtoModel,
   mapCharacterResponseDTOToStateModel,

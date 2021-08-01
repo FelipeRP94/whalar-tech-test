@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { ErrorAlert } from "../components/error/error.component";
+import { Character } from "../model/character.model";
+import { CharacterComponent } from "../components/charactersListPage/character.component";
+import { ErrorAlert } from "../components/modules/error/error.component";
 import { getCharactersRequestAction } from "../store/actions/charactersList.actions";
 import { ReduxState } from "../store/reduxState";
-import { CharacterComponent } from "./components/character.component";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 export default function CharacterListPage() {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ export default function CharacterListPage() {
 
   useEffect(() => {
     dispatch(getCharactersRequestAction());
-  }, []);
+  }, [dispatch]);
 
   const showMore = () => dispatch(getCharactersRequestAction(nextPageUrl));
   const showPrevious = () =>
@@ -23,9 +24,11 @@ export default function CharacterListPage() {
     <ErrorAlert error={error} />
   ) : (
     <>
+      <h2>Star Wars characters</h2>
+
       <div className="container">
         <div className="character-list">
-          {characters.map((character, idx) => (
+          {characters.map((character: Character, idx: number) => (
             <CharacterComponent character={character} key={idx} />
           ))}
         </div>

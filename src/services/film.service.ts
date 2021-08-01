@@ -1,6 +1,6 @@
+import { defaultRequestConfig } from "./helpers";
 import { Film } from "../model/film.model";
 import { mapFilmDTOtoModel } from "../model/mappers/film.mapper";
-import { defaultRequestConfig } from "./helpers";
 
 const getFilm = (url: string): Promise<Film> => {
   return fetch(url, defaultRequestConfig)

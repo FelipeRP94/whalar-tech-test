@@ -8,8 +8,8 @@ export const AttributeInfo = (props: Props) => {
 
   return (
     <p>
-      <span className="info--title">{title}: </span>
-      <span className="info--data">{data}</span>
+      <span>{title}: </span>
+      <span className="information--data">{data}</span>
     </p>
   );
 };

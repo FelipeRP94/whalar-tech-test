@@ -1,8 +1,9 @@
 import { AnyAction } from "redux";
 import { all, call, put } from "redux-saga/effects";
-import { Character, CharactersState } from "../../../model/character.model";
-import { Film } from "../../../model/film.model";
+import { Character } from "../../../model/character.model";
+import { CharactersState } from "../../../model/charactersState.model";
 import { characterService } from "../../../services/characters.service";
+import { Film } from "../../../model/film.model";
 import { filmService } from "../../../services/film.service";
 import {
   getCharacterErrorAction,

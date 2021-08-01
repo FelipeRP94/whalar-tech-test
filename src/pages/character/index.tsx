@@ -1,11 +1,11 @@
-import { useRouter } from "next/dist/client/router";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { ErrorAlert } from "../../components/error/error.component";
-import { Character } from "../../model/character.model";
+import { AttributeInfo } from "../../components/characterPage/attributeInfo.component";
+import { ErrorAlert } from "../../components/modules/error/error.component";
+import { Film } from "../../model/film.model";
 import { getFilmsRequestAction } from "../../store/actions/film.actions";
 import { ReduxState } from "../../store/reduxState";
-import { AttributeInfo } from "./components/attributeInfo.component";
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/dist/client/router";
+import { useEffect } from "react";
 
 export default function CharacterPage() {
   const { selectedCharacter, error } = useSelector(
@@ -13,9 +13,6 @@ export default function CharacterPage() {
   );
   const dispatch = useDispatch();
   const router = useRouter();
-  const films = useSelector(
-    (state: ReduxState) => state.charactersState.selectedCharacter?.films
-  );
 
   const backToList = () => router.back();
   const {
@@ -27,7 +24,8 @@ export default function CharacterPage() {
     eyeColor,
     skinColor,
     birthYear,
-  } = selectedCharacter as Character;
+    films,
+  } = selectedCharacter;
 
   const filmsCount = films ? films.length : 0;
 
@@ -45,7 +43,7 @@ export default function CharacterPage() {
       <p className="character--name">{selectedCharacter.name}</p>
       <fieldset>
         <legend>Information</legend>
-        <div className="character-list">
+        <div className="information">
           <AttributeInfo title="Height" data={`${height}cm`} />
           <AttributeInfo title="Gender" data={`${gender}`} />
           <AttributeInfo title="Mass" data={`${mass}kg`} />
@@ -57,13 +55,14 @@ export default function CharacterPage() {
       </fieldset>
       <fieldset>
         <legend>{`${filmsCount} film${filmsCount > 1 ? "s" : ""}`}</legend>
-
         {error ? (
           <ErrorAlert error={error} />
         ) : (
           <ul>
-            {films?.map((film, idx) => (
-              <li key={idx}>{`${film.title}: ${film.releasedYears} ago`}</li>
+            {films?.map((film: Film, idx: number) => (
+              <li
+                key={idx}
+              >{`${film.title}: ${film.releasedYears} years ago`}</li>
             ))}
           </ul>
         )}

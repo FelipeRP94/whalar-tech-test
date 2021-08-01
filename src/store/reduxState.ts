@@ -1,7 +1,7 @@
 import {
   CharactersState,
   createDefaultCharactersState,
-} from "../model/character.model";
+} from "../model/charactersState.model";
 
 export interface ReduxState {
   charactersState: CharactersState;

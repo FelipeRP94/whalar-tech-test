@@ -1,10 +1,7 @@
-import { CharacterDTO } from "../../services/model/character.dto";
-import { CharacterResponseDTO } from "../../services/model/characterResponse.dto";
-import {
-  Character,
-  CharactersState,
-  createDefaultCharacter,
-} from "../character.model";
+import { Character, createDefaultCharacter } from "../character.model";
+import { CharacterDTO } from "../../services/dto/character.dto";
+import { CharacterResponseDTO } from "../../services/dto/characterResponse.dto";
+import { CharactersState } from "../charactersState.model";
 
 export const mapCharacterResponseDTOToStateModel = (
   characterResponse: CharacterResponseDTO

@@ -1,4 +1,3 @@
-import { takeEvery } from "redux-saga/effects";
 import { characterActionTypes } from "../../actions/characters.actions";
 import { charactersListActionTypes } from "../../actions/charactersList.actions";
 import { filmActionTypes } from "../../actions/film.actions";
@@ -7,6 +6,7 @@ import {
   getCharacterSaga,
   getFilmsCharacterSaga,
 } from "./characters.sagas";
+import { takeEvery } from "redux-saga/effects";
 
 export function* watchGetCharactersListSaga() {
   yield takeEvery(
