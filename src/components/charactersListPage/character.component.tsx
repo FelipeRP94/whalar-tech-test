@@ -1,5 +1,5 @@
 import { Character } from "../../model/character.model";
-import { getCharacterRequestAction } from "../../store/actions/characters.actions";
+import { getCharacterRequestAction } from "../../store/actions/character.actions";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/dist/client/router";
 

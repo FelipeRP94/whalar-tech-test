@@ -7,7 +7,7 @@ export const characterActionTypes = {
   GET_CHARACTER_ERROR: "GET_CHARACTER_ERROR",
 };
 
-export const getCharacterRequestAction = (url?: string): AnyAction => ({
+export const getCharacterRequestAction = (url: string): AnyAction => ({
   type: characterActionTypes.GET_CHARACTER_REQUEST,
   payload: url,
 });

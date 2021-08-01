@@ -8,7 +8,7 @@ import { filmService } from "../../../services/film.service";
 import {
   getCharacterErrorAction,
   getCharacterSuccessAction,
-} from "../../actions/characters.actions";
+} from "../../actions/character.actions";
 import {
   getCharactersErrorAction,
   getCharactersSuccessAction,

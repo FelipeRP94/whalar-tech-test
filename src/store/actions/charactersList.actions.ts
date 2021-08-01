@@ -1,5 +1,5 @@
 import { AnyAction } from "redux";
-import { CharactersState } from "../../model/character.model";
+import { CharactersState } from "../../model/charactersState.model";
 
 export const charactersListActionTypes = {
   GET_CHARACTERS_LIST_REQUEST: "GET_CHARACTERS_LIST_REQUEST",

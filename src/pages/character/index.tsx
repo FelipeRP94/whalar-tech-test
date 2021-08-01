@@ -40,6 +40,7 @@ export default function CharacterPage() {
       <span className="back" onClick={backToList}>
         Back to main list
       </span>
+      <hr />
       <p className="character--name">{selectedCharacter.name}</p>
       <fieldset>
         <legend>Information</legend>

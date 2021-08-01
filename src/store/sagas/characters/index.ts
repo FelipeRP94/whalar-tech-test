@@ -1,4 +1,4 @@
-import { characterActionTypes } from "../../actions/characters.actions";
+import { characterActionTypes } from "../../actions/character.actions";
 import { charactersListActionTypes } from "../../actions/charactersList.actions";
 import { filmActionTypes } from "../../actions/film.actions";
 import {

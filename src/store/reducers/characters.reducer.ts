@@ -4,7 +4,7 @@ import {
   CharactersState,
   createDefaultCharactersState,
 } from "../../model/charactersState.model";
-import { characterActionTypes } from "../actions/characters.actions";
+import { characterActionTypes } from "../actions/character.actions";
 import { charactersListActionTypes } from "../actions/charactersList.actions";
 import { Film } from "../../model/film.model";
 import { filmActionTypes } from "../actions/film.actions";
