@@ -33,10 +33,7 @@ main {
   align-items: center;
 }
 
-@import "./vars";
-@import "./components/character";
-@import "./components/character-list";
-@import "./components/header";
-@import "./components/button";
+@import "./variables";
+@import "./components/index";
 @import "./characterPage";
 @import "./error";

@@ -6,8 +6,17 @@
 
   .information {
     display: flex;
-    @media screen and (min-width: 1096px) {
-      justify-content: space-evenly;
+    flex-direction: column;
+
+    @media screen and (min-width: 768px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-auto-flow: row;
+    }
+
+    &--data {
+      text-transform: capitalize;
+      font-weight: bold;
     }
   }
 
@@ -15,7 +24,7 @@
     cursor: pointer;
 
     &:hover {
-      color: blue;
+      color: darkgray;
     }
   }
 }
